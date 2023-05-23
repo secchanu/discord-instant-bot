@@ -22,7 +22,7 @@ const client = new Client({
 	},
 });
 
-const instant_ms = parseInt(`${process.env.INSTANT_MS}`) || 12 * 60 * 60;
+const instant_ms = parseInt(`${process.env.INSTANT_MS}`) || 12 * 60 * 60 * 1000;
 
 client.on("channelCreate", async (channel) => {
 	await setTimeout(instant_ms);
