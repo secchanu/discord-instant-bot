@@ -1,12 +1,12 @@
 # discord-instant-bot
 
-Discord のサーバーをインスタントサーバー(一時的なサーバー)として運用するための Discord Bot
+Discordサーバーをインスタントサーバー(一時的なサーバー)として運用するためのBot
 
 ## 使い方
 
 ### 必要なもの
 
-- [Node.js](https://nodejs.org/ja/) (LTS 版推奨)
+- [Node.js](https://nodejs.org/ja/)（LTS版推奨）
 - [Git](https://git-scm.com/downloads)
 
 ### 準備
@@ -14,8 +14,8 @@ Discord のサーバーをインスタントサーバー(一時的なサーバ�
 #### Bot の作成
 
 [開発者向けポータル](https://discord.com/developers/applications)からアプリケーションを作成  
-アプリケーションの設定から Bot を選択し、TOKEN を取得する  
-Privileged Gateway Intents の SERVER MEMBERS INTENT をオンにしておく
+アプリケーションの設定からBotを選択し、TOKENを取得する  
+Privileged Gateway IntentsのSERVER MEMBERS INTENTをオンにしておく
 
 #### プログラムの準備
 
@@ -43,14 +43,14 @@ npm ci
 npm run build
 ```
 
-この README と同じフォルダの中に以下のような内容の`.env`という名前のファイルを作成
+このREADMEと同じフォルダーの中に以下のような内容の`.env`という名前のファイルを作成
 
 ```.env
 BOT_TOKEN = ここにDiscordBotのTOKEN
 INSTANT_MS = 削除までの時間(ミリ秒)
 ```
 
-※デフォルトの`INSTANT_MS`は`43200`(12 時間)、変更する必要がない場合は`INSTANT_MS`の行は省略可
+※デフォルトの`INSTANT_MS`は`43200`（12時間）、変更する必要がない場合は`INSTANT_MS`の行は省略可
 
 ### 実行
 

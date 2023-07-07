@@ -3,13 +3,12 @@ dotenv.config();
 
 import { setTimeout } from "timers/promises";
 
-import { ActivityType, Client, GatewayIntentBits } from "discord.js";
+import { ActivityType, Client, Events, GatewayIntentBits } from "discord.js";
 
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
 		GatewayIntentBits.GuildMembers,
-		GatewayIntentBits.GuildInvites,
 		GatewayIntentBits.GuildMessages,
 	],
 	presence: {
@@ -24,28 +23,21 @@ const client = new Client({
 
 const instant_ms = parseInt(`${process.env.INSTANT_MS}`) || 12 * 60 * 60 * 1000;
 
-client.on("channelCreate", async (channel) => {
+client.on(Events.ChannelCreate, async (channel) => {
 	await setTimeout(instant_ms);
 	await channel.delete().catch(() => {
 		return;
 	});
 });
 
-client.on("guildMemberAdd", async (member) => {
+client.on(Events.GuildMemberAdd, async (member) => {
 	await setTimeout(instant_ms);
 	await member.kick().catch(() => {
 		return;
 	});
 });
 
-client.on("inviteCreate", async (invite) => {
-	await setTimeout(instant_ms);
-	await invite.delete().catch(() => {
-		return;
-	});
-});
-
-client.on("messageCreate", async (message) => {
+client.on(Events.MessageCreate, async (message) => {
 	await setTimeout(instant_ms);
 	await message.delete().catch(() => {
 		return;
